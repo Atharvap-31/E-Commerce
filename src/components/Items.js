@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addButtonCount, reduceButtonCount } from "./utils/appSlice";
+import { addButtonCount, reduceButtonCount } from "../utils/appSlice";
 
 const Items = ({ demoProducts }) => {
   const products = useSelector((store) => store.app.products);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { PRODUCTS_API } from "./utils/constant";
+import { PRODUCTS_API } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addProducts } from "./utils/appSlice";
+import { addProducts } from "../utils/appSlice";
 import Items from "./Items";
 
 const Products = () => {
