@@ -4,22 +4,24 @@ const appSlice = createSlice({
   name: "app",
   initialState: {
     products: {},
-    buttonCount: 0,
+    productsCount: [],
   },
   reducers: {
     addProducts: (state, action) => {
       state.products = action.payload;
     },
-    addButtonCount: (state) => {
-      state.buttonCount = state.buttonCount + 1;
+    addProductCount: (state, action) => {
+      state.productsCount.push(action.payload);
     },
-    reduceButtonCount: (state) => {
-      state.buttonCount = state.buttonCount - 1;
+    reduceProductCount: (state, action) => {
+      state.productsCount = state.productsCount.filter(
+        (product) => product.id !== action.payload
+      );
     },
   },
 });
 
-export const { addProducts, addButtonCount, reduceButtonCount } =
+export const { addProducts, addProductCount, reduceProductCount } =
   appSlice.actions;
 
 export default appSlice.reducer;

@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const productsCount = useSelector((store) => store.app.productsCount);
+
   return (
     <div className="pr-10 flex justify-between items-center bg-yellow-100">
       <div>
@@ -18,7 +21,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="mx-6">
-            <Link to="/Cart">Cart</Link>
+            <Link to="/Cart">Cart ({productsCount.length})</Link>
           </li>
           <li className="mx-6 ">
             <Link to="/Contact">Contact</Link>

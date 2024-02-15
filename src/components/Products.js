@@ -62,32 +62,34 @@ const Products = () => {
         </button>
         <button
           onClick={filterMensClothes}
-          className="p-2 text-md font-medium rounded-xl bg-green-400 hover:bg-green-300 mx-4"
+          className="p-2 text-md font-medium rounded-xl bg-red-400 hover:bg-red-300 mx-4"
         >
           Men's Clothing
         </button>
         <button
           onClick={filterJewelery}
-          className="p-2 text-md font-medium rounded-xl bg-green-400 hover:bg-green-300 mx-4"
+          className="p-2 text-md font-medium rounded-xl bg-blue-400 hover:bg-blue-300 mx-4"
         >
           Jewelery
         </button>
 
         <button
           onClick={filterElectronics}
-          className="p-2 text-md font-medium rounded-xl bg-green-400 hover:bg-green-300 mx-4"
+          className="p-2 text-md font-medium rounded-xl bg-yellow-400 hover:bg-yellow-300 mx-4"
         >
           Electronics
         </button>
         <button
           onClick={filterWomensClothes}
-          className="p-2 text-md font-medium rounded-xl bg-green-400 hover:bg-green-300 mx-4"
+          className="p-2 text-md font-medium rounded-xl bg-purple-400 hover:bg-purple-300 mx-4"
         >
           Women's clothing
         </button>
       </div>
-      <div className="mt-10 flex">
-        <Items demoProducts={demoProducts} />
+      <div className="mt-10 flex flex-wrap">
+        {demoProducts.map((product) => (
+          <Items product={product} key={product.id} button="Add to Cart" />
+        ))}
       </div>
     </div>
   );
