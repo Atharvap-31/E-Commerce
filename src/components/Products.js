@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { PRODUCTS_API } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
-import { addProducts } from "../utils/appSlice";
+import React from "react";
 import Items from "./Items";
+import useProducts from "../utils/useProducts";
+import { useSelector } from "react-redux";
 
 const Products = () => {
-  const [demoProducts, setDemoProducts] = useState([]);
   const products = useSelector((store) => store.app.products);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    getProductsData();
-  }, []);
-
-  const getProductsData = async () => {
-    const data = await fetch(PRODUCTS_API);
-    const json = await data.json();
-    dispatch(addProducts(json));
-    setDemoProducts(json);
-  };
+  const [demoProducts, setDemoProducts] = useProducts();
 
   const allProducts = () => {
     setDemoProducts(products);
